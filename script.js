@@ -12,6 +12,7 @@ const translations = {
         "stat-graduation": "Graduate",
         "btn-projects": "View Projects",
         "btn-contact": "Contact Me",
+        "btn-download-cv": "Download CV",
         "about-title": "About Me",
         "about-text": "Software Engineering graduate from South Ural State University (2026). Skilled in Java, Python, Kotlin, SQL, C#. Experienced in developing web applications with Spring Boot, mobile applications on Android, and 1C configurations for business automation.",
         "skills-title": "Skills",
@@ -37,7 +38,9 @@ const translations = {
         "cert-csharp": "C#",
         "contact-title": "Get In Touch",
         "contact-text": "I'm currently open to new opportunities in IT. Feel free to reach out!",
-        "footer": "© 2026 Hussein Ahmed — Built with passion"
+        "footer": "© 2026 Hussein Ahmed — Built with passion",
+        "cv-modal-title": "Choose CV Language",
+        "cv-modal-desc": "Select the language for your CV download"
     },
     ru: {
         "badge": "Открыт для работы",
@@ -49,6 +52,7 @@ const translations = {
         "stat-graduation": "Выпуск",
         "btn-projects": "Проекты",
         "btn-contact": "Связаться",
+        "btn-download-cv": "Скачать резюме",
         "about-title": "Обо мне",
         "about-text": "Выпускник ЮУрГУ по специальности «Программная инженерия» (2026). Владею Java, Python, Kotlin, SQL, C#. Имею опыт разработки веб-приложений на Spring Boot, мобильных приложений на Android и конфигураций 1С.",
         "skills-title": "Навыки",
@@ -74,7 +78,9 @@ const translations = {
         "cert-csharp": "C#",
         "contact-title": "Связаться",
         "contact-text": "Открыт для новых возможностей в IT. Буду рад обратной связи!",
-        "footer": "© 2026 Хуссейн Ахмед — Создано с душой"
+        "footer": "© 2026 Хуссейн Ахмед — Создано с душой",
+        "cv-modal-title": "Выберите язык резюме",
+        "cv-modal-desc": "Выберите язык для скачивания резюме"
     },
     ar: {
         "badge": "متاح للعمل",
@@ -86,6 +92,7 @@ const translations = {
         "stat-graduation": "تخرج",
         "btn-projects": "المشاريع",
         "btn-contact": "تواصل معي",
+        "btn-download-cv": "تحميل السيرة الذاتية",
         "about-title": "نبذة عني",
         "about-text": "خريج هندسة البرمجيات من جامعة جنوب الأورال الحكومية (2026). أمتلك مهارات في Java، Python، Kotlin، SQL، C#. لدي خبرة في تطوير تطبيقات الويب باستخدام Spring Boot، وتطبيقات الأندرويد، وإعداد أنظمة 1C.",
         "skills-title": "المهارات",
@@ -111,7 +118,9 @@ const translations = {
         "cert-csharp": "C#",
         "contact-title": "تواصل معي",
         "contact-text": "منفتح على فرص جديدة في مجال IT. سأكون سعيداً بتواصلكم!",
-        "footer": "© 2026 حسين أحمد — صُنع بشغف"
+        "footer": "© 2026 حسين أحمد — صُنع بشغف",
+        "cv-modal-title": "اختر لغة السيرة الذاتية",
+        "cv-modal-desc": "حدد اللغة التي تريد تحميل السيرة الذاتية بها"
     }
 };
 
@@ -246,3 +255,156 @@ animate();
 window.addEventListener('resize', () => {
     initParticles();
 });
+
+// ============================================
+// CV MODAL
+// ============================================
+function openCvModal() {
+    document.getElementById('cv-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCvModal() {
+    document.getElementById('cv-modal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('cv-modal');
+    if (e.target === modal) closeCvModal();
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeCvModal();
+});
+
+// ============================================
+// BUILD CV HTML TEMPLATE
+// ============================================
+function buildCvHtml(lang) {
+    const data = cvData[lang];
+
+    const skillsHtml = data.sections.skills.items.map(skill => `
+        <div class="cv-skill-row">
+            <span class="cv-skill-cat">${skill.category}:</span>
+            <span class="cv-skill-list">${skill.list}</span>
+        </div>
+    `).join('');
+
+    const projectsHtml = data.sections.projects.items.map((p, i) => `
+        <div class="cv-project">
+            <h3>${i + 1}. ${p.name}</h3>
+            <p>${p.desc}</p>
+            <span class="cv-tech">Tech: ${p.tech}</span>
+        </div>
+    `).join('');
+
+    const certsHtml = data.sections.certificates.items.join('  •  ');
+
+    const eduHtml = data.sections.education.items.map(e => `
+        <div class="cv-edu-item">
+            <div class="cv-edu-school">${e.school}</div>
+            <div class="cv-edu-row">
+                <span>${e.degree}</span>
+                <span class="cv-edu-year">${e.year}</span>
+            </div>
+        </div>
+    `).join('');
+
+    return `
+        <div class="cv-template-inner">
+            <div class="cv-header">
+                <h1>${data.name}</h1>
+                <div class="cv-job-title">${data.title}</div>
+            </div>
+            <div class="cv-contacts">
+                ${data.contacts.email} &nbsp;•&nbsp; ${data.contacts.phone} &nbsp;•&nbsp; ${data.contacts.github} &nbsp;•&nbsp; ${data.contacts.telegram}
+            </div>
+            <div class="cv-body">
+                <div class="cv-section">
+                    <h2>${data.sections.summary.title}</h2>
+                    <p>${data.sections.summary.text}</p>
+                </div>
+                <div class="cv-section">
+                    <h2>${data.sections.skills.title}</h2>
+                    ${skillsHtml}
+                </div>
+                <div class="cv-section">
+                    <h2>${data.sections.projects.title}</h2>
+                    ${projectsHtml}
+                </div>
+                <div class="cv-section">
+                    <h2>${data.sections.certificates.title}</h2>
+                    <div class="cv-certs">${certsHtml}</div>
+                </div>
+                <div class="cv-section">
+                    <h2>${data.sections.education.title}</h2>
+                    ${eduHtml}
+                </div>
+            </div>
+            <div class="cv-footer">
+                Generated from hussein-ahmed-604.github.io/my-resume
+            </div>
+        </div>
+    `;
+}
+
+// ============================================
+// GENERATE CV PDF
+// ============================================
+function generateCV(lang) {
+    closeCvModal();
+
+    const template = document.getElementById('cv-template');
+    template.innerHTML = buildCvHtml(lang);
+    template.classList.add('active');
+
+    const element = template.querySelector('.cv-template-inner');
+
+    // Wait for fonts and layout
+    const waitFonts = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+
+    waitFonts
+        .then(() => new Promise(resolve => setTimeout(resolve, 400)))
+        .then(() => {
+            const options = {
+                margin: 0,
+                filename: `Hussein-Ahmed-CV-${lang.toUpperCase()}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    letterRendering: true,
+                    backgroundColor: '#ffffff',
+                    logging: false,
+                    width: 794,
+                    height: 1122,
+                    windowWidth: 794,
+                    windowHeight: 1122,
+                    scrollX: 0,
+                    scrollY: 0,
+                    x: 0,
+                    y: 0
+                },
+                jsPDF: {
+                    unit: 'mm',
+                    format: 'a4',
+                    orientation: 'portrait',
+                    compress: true
+                },
+                pagebreak: { mode: [] }
+            };
+
+            return html2pdf().set(options).from(element).save();
+        })
+        .then(() => {
+            template.classList.remove('active');
+            template.innerHTML = '';
+        })
+        .catch(err => {
+            console.error('PDF generation error:', err);
+            alert('خطأ: ' + (err && err.message ? err.message : err));
+            template.classList.remove('active');
+            template.innerHTML = '';
+        });
+}
