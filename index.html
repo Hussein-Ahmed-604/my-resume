@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hussein Ahmed — Software Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Language Switcher -->
+<div class="lang-switcher">
+    <button onclick="changeLanguage('en')" class="lang-btn active" id="btn-en">EN</button>
+    <button onclick="changeLanguage('ru')" class="lang-btn" id="btn-ru">RU</button>
+    <button onclick="changeLanguage('ar')" class="lang-btn" id="btn-ar">AR</button>
+</div>
+
+<!-- Animated Background -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span data-key="badge">Available for work</span>
+        </div>
+
+        <img src="images/profile.jpg" alt="Hussein Ahmed" class="hero-img">
+
+        <h1 class="hero-title">
+            <span data-key="greeting">Hello, I'm</span>
+            <span class="gradient-text" data-key="name">Hussein Ahmed</span>
+        </h1>
+
+        <p class="hero-subtitle" data-key="job-title">
+            Software Engineer • Java • Python • Kotlin
+        </p>
+
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">5+</span>
+                <span class="stat-label" data-key="stat-projects">Projects</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">7+</span>
+                <span class="stat-label" data-key="stat-certificates">Certificates</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">2026</span>
+                <span class="stat-label" data-key="stat-graduation">Graduate</span>
+            </div>
+        </div>
+
+        <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary" data-key="btn-projects">View Projects</a>
+            <a href="#contact" class="btn btn-secondary" data-key="btn-contact">Contact Me</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2 data-key="about-title">About Me</h2>
+        </div>
+        <p class="section-text" data-key="about-text">
+            Software Engineering graduate from South Ural State University (2026). Skilled in Java, Python, Kotlin, SQL, C#. Experienced in developing web applications with Spring Boot, mobile applications on Android, and 1C configurations for business automation.
+        </p>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="section" id="skills">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2 data-key="skills-title">Skills</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <img src="images/java.png" alt="Java" class="skill-logo">
+                <h3>Java</h3>
+                <p>Spring Boot, JPA, Security</p>
+            </div>
+            <div class="skill-card">
+                <img src="images/python.png" alt="Python" class="skill-logo">
+                <h3>Python</h3>
+                <p>Data Analysis, Automation</p>
+            </div>
+            <div class="skill-card">
+                <img src="images/kotlin.png" alt="Kotlin" class="skill-logo">
+                <h3>Kotlin</h3>
+                <p>Android Development</p>
+            </div>
+            <div class="skill-card">
+                <img src="images/csharp.png" alt="C#" class="skill-logo">
+                <h3>C#</h3>
+                <p>.NET, OOP</p>
+            </div>
+            <div class="skill-card">
+                <img src="images/mysql.png" alt="MySQL" class="skill-logo">
+                <h3>SQL</h3>
+                <p>MySQL, PostgreSQL</p>
+            </div>
+            <div class="skill-card">
+                <img src="images/1c.png" alt="1C" class="skill-logo">
+                <h3>1C</h3>
+                <p>Enterprise Automation</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="section" id="projects">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">03</span>
+            <h2 data-key="projects-title">Projects</h2>
+        </div>
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <div class="project-number">01</div>
+                <h3 data-key="project1-title">E-commerce Store</h3>
+                <p data-key="project1-desc">Web application on Java + Spring Boot with MySQL, REST API, authentication, and admin panel.</p>
+                <div class="project-tags">
+                    <span>Java</span><span>Spring Boot</span><span>MySQL</span>
+                </div>
+                <a href="https://gitverse.ru/Hussein/MobileRock" target="_blank" class="project-link">
+                    <span data-key="view-project">View Project</span> →
+                </a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">02</div>
+                <h3 data-key="project2-title">Bank Card Management</h3>
+                <p data-key="project2-desc">Backend on Java + Spring Boot with JWT, card management, transfers, and role model.</p>
+                <div class="project-tags">
+                    <span>Java</span><span>JWT</span><span>Docker</span>
+                </div>
+                <a href="https://github.com/Hussein-Ahmed-604/bank_rest" target="_blank" class="project-link">
+                    <span data-key="view-project">View Project</span> →
+                </a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">03</div>
+                <h3 data-key="project3-title">1C Trade Automation</h3>
+                <p data-key="project3-desc">1C:Enterprise 8.3 configuration for automating purchases, sales, and warehouse.</p>
+                <div class="project-tags">
+                    <span>1C</span><span>ERP</span>
+                </div>
+                <a href="https://github.com/Hussein-Ahmed-604/1C-Trade-Automation" target="_blank" class="project-link">
+                    <span data-key="view-project">View Project</span> →
+                </a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">04</div>
+                <h3 data-key="project4-title">MathTrainerKids</h3>
+                <p data-key="project4-desc">Android app for teaching children counting. Implemented UI and task logic.</p>
+                <div class="project-tags">
+                    <span>Android</span><span>Java</span>
+                </div>
+                <a href="https://github.com/Hussein-Ahmed-604/MathTrainerKids" target="_blank" class="project-link">
+                    <span data-key="view-project">View Project</span> →
+                </a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-number">05</div>
+                <h3 data-key="project5-title">Apriori Data Analysis</h3>
+                <p data-key="project5-desc">Market basket analysis using Apriori algorithm in Python.</p>
+                <div class="project-tags">
+                    <span>Python</span><span>Pandas</span>
+                </div>
+                <a href="https://github.com/Hussein-Ahmed-604/apriori-baskets" target="_blank" class="project-link">
+                    <span data-key="view-project">View Project</span> →
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Certificates Section -->
+<section class="section" id="certificates">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">04</span>
+            <h2 data-key="certificates-title">Certificates</h2>
+        </div>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <span class="cert-icon"></span>
+                <span data-key="cert-css">CSS</span>
+            </div>
+            <div class="cert-card">
+                <span class="cert-icon"></span>
+                <span data-key="cert-js">JavaScript</span>
+            </div>
+            <div class="cert-card">
+                <span class="cert-icon"></span>
+                <span data-key="cert-testing">Functional Testing</span>
+            </div>
+            <div class="cert-card">
+                <span class="cert-icon"></span>
+                <span data-key="cert-html">HTML</span>
+            </div>
+            <div class="cert-card">
+                <span class="cert-icon"></span>
+                <span data-key="cert-git">Git</span>
+            </div>
+            <div class="cert-card">
+                <span class="cert-icon"></span>
+                <span data-key="cert-java">Java</span>
+            </div>
+            <div class="cert-card">
+                <span class="cert-icon"></span>
+                <span data-key="cert-csharp">C#</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-number">05</span>
+            <h2 data-key="contact-title">Get In Touch</h2>
+        </div>
+        <p class="section-text" data-key="contact-text">
+            I'm currently open to new opportunities in IT. Feel free to reach out!
+        </p>
+        <div class="contact-grid">
+            <a href="mailto:ahmedhussejn07@gmail.com" class="contact-card">
+                <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span class="contact-value">ahmedhussejn07@gmail.com</span>
+            </a>
+            <a href="https://github.com/Hussein-Ahmed-604" target="_blank" class="contact-card">
+                <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.1-.75.08-.74.08-.74 1.21.09 1.85 1.25 1.85 1.25 1.08 1.85 2.83 1.31 3.52 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.95 0-1.32.47-2.39 1.24-3.23-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.23 0 4.61-2.8 5.65-5.47 5.95.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58C20.56 22.3 24 17.8 24 12.5 24 5.87 18.63.5 12 .5z"/>
+                </svg>
+                <span class="contact-value">Hussein-Ahmed-604</span>
+            </a>
+            <a href="https://t.me/HusseinAhmed15" target="_blank" class="contact-card">
+                <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                </svg>
+                <span class="contact-value">@HusseinAhmed15</span>
+            </a>
+            <a href="https://wa.me/79227016784" target="_blank" class="contact-card">
+                <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <span class="contact-value">WhatsApp</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p data-key="footer">© 2026 Hussein Ahmed — Built with passion</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
