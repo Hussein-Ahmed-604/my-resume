@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hussein-ahmed-604.github.io/my-resume/sitemap.xml
